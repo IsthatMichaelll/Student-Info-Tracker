@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class EduCrew {
 
     public static void main(String[] args) {
@@ -7,7 +8,7 @@ public class EduCrew {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\nWelcome to the Student Roster System");
+            System.out.println("\nWelcome to EduCrew");
             System.out.println("1. Teacher");
             System.out.println("2. Student");
             System.out.println("3. Exit");
@@ -37,11 +38,19 @@ public class EduCrew {
         while (true) {
             System.out.println("1. Create Class");
             System.out.println("2. View Classes");
+            
+            int choice = scanner.nextInt();
+            scanner.nextLine();  // Consume newline left-over
+
+            switch (choice) {
+                case 1:
+            rosterSystem.createAndAddClassroom();
     }
+}
     }
     private static void handleStudentMenu(EduCrew system, Scanner scanner) {
         while (true) {
-            System.out.println("\nStudent Roster System");
+            System.out.println("\nEduCrew ");
             System.out.println("1. Add Student");
             System.out.println("2. Search for Student");
             System.out.println("3. Assign Work");

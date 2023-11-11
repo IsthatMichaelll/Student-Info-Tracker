@@ -1,0 +1,56 @@
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+
+public class classrooms {
+    private String className;
+    private List<Student> students;
+
+    public classrooms(String className) {
+        this.className = className;
+        this.students = new ArrayList<>();
+    }
+
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+}
+
+public class EduCrew {
+    private List<Classroom> classrooms;
+    private Scanner scanner;
+
+    public EduCrew() {
+        this.classrooms = new ArrayList<>();
+        this.scanner = new Scanner(System.in);
+    }
+
+    public void createAndAddClassroom() {
+        System.out.print("Class name: ");
+        String className = scanner.nextLine();
+
+        Classroom newClass = new Classroom(className);
+
+        while (true) {
+            System.out.print("Enter student name to add (or 'done' to finish): ");
+            String studentName = scanner.nextLine();
+
+            if ("done".equalsIgnoreCase(studentName)) {
+                if (newClass.getStudents().isEmpty()) {
+                    System.out.println("At least one student is required to create a class.");
+                    continue;
+                }
+                break;
+            }
+
+            Student student = new Student(studentName); // Assuming Student has a constructor with name
+            newClass.addStudent(student);
+        }
+
+        classrooms.add(newClass);
+        System.out.println("Class created successfully.Happy Teaching");
+    }
+
+   
